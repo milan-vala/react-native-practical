@@ -1,35 +1,65 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
 import DetailScreen from "../screens/DetailScreen";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import BellIcon from "react-native-vector-icons/SimpleLineIcons";
+import DogIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+  const Navigation = () => <Text>Navigation</Text>;
+  const Profile = () => <Text>Profile</Text>;
+  const Activity = () => <Text>Activity</Text>;
+
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         headerShown: false,
         tabBarHideOnKeyboard: true,
-        tabBarShowLabel: false,
-        // tabBarStyle: styles.tabBarStyle,
-      }}>
-      <Tab.Screen name="Home" component={HomeScreen}></Tab.Screen>
-      <Tab.Screen name="Detail" component={DetailScreen}></Tab.Screen>
+        tabBarActiveTintColor: "#FDD015",
+        tabBarInactiveTintColor: "gray",
+      })}>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Activity"
+        component={Activity}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="watch-later" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Navigation"
+        component={Navigation}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <BellIcon name="bell" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <DogIcon name="dog" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  tabBarStyle: {
-    height: 80,
-    position: "absolute",
-    // backgroundColor: 'rgba(12, 15, 20, 0.5)',
-    borderTopWidth: 0,
-    elevation: 0,
-    borderTopColor: "transparent",
-  },
-});
 
 export default TabNavigator;
