@@ -10,16 +10,23 @@ import {
 } from "react-native";
 import React from "react";
 import LoginForm from "../components/LoginForm";
+import BackArrow from "react-native-vector-icons/AntDesign";
+import StartIcon from "react-native-vector-icons/Entypo";
+import OptionIcon from "react-native-vector-icons/SimpleLineIcons";
 
 const Login = () => {
   const Header = () => {
     return (
       <View style={styles.header}>
-        <Text>Back</Text>
+        <TouchableOpacity style={styles.circleButton}>
+          <BackArrow name="arrowleft" size={20} color={"#000000"} />
+        </TouchableOpacity>
         <Text style={{ fontSize: 18, fontWeight: "600", color: "#000000" }}>
           Login
         </Text>
-        <Text>Option</Text>
+        <TouchableOpacity style={styles.circleButton}>
+          <OptionIcon name="options" size={20} color={"#000000"} />
+        </TouchableOpacity>
       </View>
     );
   };
@@ -113,6 +120,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   welcomeBack: {
     fontSize: 24,
@@ -156,12 +164,21 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#5B5959",
     fontSize: 14,
-    marginTop: 30,
+    marginTop: 60,
   },
   signup: {
     color: "#F2613C",
     fontSize: 14,
     fontWeight: "700",
+  },
+  circleButton: {
+    borderColor: "#EAEAEA",
+    borderWidth: 2,
+    borderRadius: 40,
+    height: 44,
+    width: 44,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 export default Login;

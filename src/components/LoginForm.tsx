@@ -44,6 +44,7 @@ export default LoginForm;
 const styles = StyleSheet.create({
   form: {
     flex: 1,
+    marginTop: 20
   },
   input: {
     height: 48,
@@ -52,12 +53,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginVertical: 10,
     paddingLeft: 20,
+
   },
   formBottom: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginTop: 5
   },
   button: {
     flex: 1,
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 8,
-    marginTop: 20,
+    marginTop: 40,
   },
   buttonText: {
     fontSize: 14,
