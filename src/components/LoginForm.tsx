@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, TextInput, View, Text } from "react-native";
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  Text,
+  TouchableOpacity,
+} from "react-native";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const LoginForm = () => {
   return (
@@ -9,8 +16,21 @@ const LoginForm = () => {
         <TextInput style={styles.input} placeholder="Enter your password" />
       </View>
       <View style={styles.formBottom}>
-        <Text style={styles.label}>Remember me</Text>
+        <BouncyCheckbox
+          size={20}
+          fillColor="#CCCCCC"
+          unfillColor="#CCCCCC"
+          text="Remember me"
+          iconStyle={{ borderColor: "#CCCCCC", borderRadius: 3 }}
+          innerIconStyle={{ borderWidth: 2, borderRadius: 3 }}
+          textStyle={{ fontFamily: "JosefinSans-Regular" }}
+          onPress={(isChecked: boolean) => {}}
+        />
+        <Text style={{ fontSize: 12, color: "#FC6D5B" }}>Forgot password?</Text>
       </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -32,7 +52,21 @@ const styles = StyleSheet.create({
   formBottom: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
-  checkbox: {},
-  label: {},
+  button: {
+    flex: 1,
+    backgroundColor: "#FDD015",
+    height: 48,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 8,
+    marginTop: 20,
+  },
+  buttonText: {
+    fontSize: 14,
+    fontWeight: "700",
+    color: "#000000",
+  },
 });
