@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeHeader = () => {
+  const navigation = useNavigation();
   return (
     <View
       style={{ backgroundColor: "#FDD015", height: "auto", paddingBottom: 16 }}>
@@ -67,6 +69,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     paddingHorizontal: 8,
     borderRadius: 8,
-    paddingLeft: 16
+    paddingLeft: 16,
   },
 });
