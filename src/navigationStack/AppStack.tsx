@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <>
       <Stack.Screen
         name="Tab"
         component={TabNavigator}
@@ -21,7 +21,7 @@ const AppStack = () => {
         name="Detail"
         component={DetailScreen}
         options={{ animation: "fade" }}></Stack.Screen>
-    </Stack.Navigator>
+    </>
   );
 };
 
