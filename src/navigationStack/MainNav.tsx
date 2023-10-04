@@ -5,6 +5,7 @@ import HomeScreen from "../screens/HomeScreen";
 import DetailScreen from "../screens/DetailScreen";
 import Login from "../screens/Login";
 import Signup from "../screens/Signup";
+import OnBoarding from "../screens/OnBoarding";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
@@ -19,6 +20,11 @@ const MainNav = () => {
           name="Splash"
           component={SplashScreen}
           options={{ animation: "fade" }}
+        />
+        <Stack.Screen
+          name="OnBoarding"
+          component={OnBoarding}
+          options={{ animation: "slide_from_right" }}
         />
         <Stack.Screen
           name="Login"

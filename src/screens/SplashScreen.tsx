@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate("Login");
+      navigation.navigate("OnBoarding");
     }, 2000);
   }, []);
 
