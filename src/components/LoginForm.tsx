@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginForm = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.form}>
       <View>
@@ -28,7 +30,9 @@ const LoginForm = () => {
         />
         <Text style={{ fontSize: 12, color: "#FC6D5B" }}>Forgot password?</Text>
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Home")}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
     </View>
