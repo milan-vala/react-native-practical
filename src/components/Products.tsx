@@ -73,15 +73,21 @@ const Products = () => {
               width={30}
             />
             <View style={styles.productContent}>
-              <Text>{product.name}</Text>
+              <Text style={{ color: "#5B5959" }}>{product.name}</Text>
               <View style={styles.productDescription}>
-                <Text style={{ fontSize: 10 }}>{product.company}</Text>
+                <Text style={{ fontSize: 10, color: "#5B5959" }}>
+                  {product.company}
+                </Text>
                 <StartIcon name="star" size={16} color={"#FFC061"} />
-                <Text style={{ fontSize: 10 }}>{product.rating}</Text>
+                <Text style={{ fontSize: 10, color: "#5B5959" }}>
+                  {product.rating}
+                </Text>
               </View>
             </View>
             <View style={styles.price}>
-              <Text style={{ fontWeight: "700" }}>{product.price}</Text>
+              <Text style={{ fontWeight: "700", color: "#5B5959" }}>
+                {product.price}
+              </Text>
               <Text style={styles.strickedPrice}>{product.strickedPrice}</Text>
             </View>
           </TouchableOpacity>

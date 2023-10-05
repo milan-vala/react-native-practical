@@ -21,8 +21,10 @@ const Categories = () => {
           flexDirection: "row",
           justifyContent: "space-between",
         }}>
-        <Text style={{ fontWeight: "700", fontSize: 18 }}>Categories</Text>
-        <Text style={{ fontSize: 14 }}>View All</Text>
+        <Text style={{ fontWeight: "700", fontSize: 18, color: "#5B5959" }}>
+          Categories
+        </Text>
+        <Text style={{ fontSize: 14, color: "#5B5959" }}>View All</Text>
       </View>
       <View style={styles.container}>
         {categories.map((category, index) => (
