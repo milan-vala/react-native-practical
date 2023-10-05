@@ -1,16 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   TextInput,
   View,
   Text,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/features/loginSlice";
+import axios from "axios";
 
 const LoginForm = () => {
-  const navigation = useNavigation();
+  const [loading, setLoading] = useState<boolean>(false);
+  const navigation = useNavigation<any>();
+  const dispatch = useDispatch();
+
+  const handleLogin = async (): Promise<void> => {
+    setLoading(true);
+    try {
+      const url = "https://dogbook.developertask.in/api/dog/login";
+      const payload = {
+        email: "popaye@yopmail.com",
+        password: "123456@Aa",
+        device_type: "1",
+      };
+      const response = await axios.post(url, payload);
+      if (response.data) {
+        dispatch(login(response.data));
+        navigation.navigate("Tab");
+      }
+    } catch (error) {
+      console.warn("Error: API failed while login - ", error);
+    } finally {
+      dispatch(login("milan"));
+      navigation.navigate("Tab");
+      setLoading(false);
+    }
+  };
+
   return (
     <View style={styles.form}>
       <View>
@@ -32,8 +62,14 @@ const LoginForm = () => {
       </View>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("Tab")}>
-        <Text style={styles.buttonText}>Login</Text>
+        onPress={() => {
+          handleLogin();
+        }}>
+        {loading ? (
+          <ActivityIndicator />
+        ) : (
+          <Text style={styles.buttonText}>Login</Text>
+        )}
       </TouchableOpacity>
     </View>
   );
@@ -44,7 +80,7 @@ export default LoginForm;
 const styles = StyleSheet.create({
   form: {
     flex: 1,
-    marginTop: 20
+    marginTop: 20,
   },
   input: {
     height: 48,
@@ -53,14 +89,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginVertical: 10,
     paddingLeft: 20,
-
   },
   formBottom: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 5
+    marginTop: 5,
   },
   button: {
     flex: 1,

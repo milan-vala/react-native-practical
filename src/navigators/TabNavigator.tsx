@@ -6,10 +6,14 @@ import DetailScreen from "../screens/DetailScreen";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import BellIcon from "react-native-vector-icons/SimpleLineIcons";
 import DogIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import type { RootState } from "../redux/store";
+import { useSelector } from "react-redux";
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+  const user = useSelector((state: RootState) => state.login.user);
+  console.log("user ---->", user);
   const Navigation = () => <Text>Navigation</Text>;
   const Profile = () => <Text>Profile</Text>;
   const Activity = () => <Text>Activity</Text>;
